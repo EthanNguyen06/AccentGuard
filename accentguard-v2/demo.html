@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - AccentGuard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🎤</span>
+                <span class="logo-text">AccentGuard</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="practice.html" class="nav-link">Practice</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="demo.html" class="nav-link active">Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="demo-container">
+            <!-- Demo Header -->
+            <section class="demo-header">
+                <div class="demo-hero">
+                    <h1 class="demo-title">See AccentGuard in Action</h1>
+                    <p class="demo-subtitle">
+                        Watch how AI-powered feedback helps improve professional communication
+                    </p>
+                </div>
+            </section>
+
+            <!-- Interactive Demo -->
+            <section class="interactive-demo">
+                <div class="container">
+                    <h2 class="section-title">Try It Yourself</h2>
+                    <div class="demo-interface">
+                        <div class="demo-controls">
+                            <div class="mode-selector">
+                                <button class="demo-mode-btn active" data-mode="interview">💼 Interview</button>
+                                <button class="demo-mode-btn" data-mode="presentation">📊 Presentation</button>
+                                <button class="demo-mode-btn" data-mode="meeting">🤝 Meeting</button>
+                            </div>
+                            <div class="demo-actions">
+                                <button id="demoRecordBtn" class="demo-record-btn" disabled>
+                                    <span class="record-icon">🎤</span>
+                                    Start Demo Recording
+                                </button>
+                                <div id="demoStatus" class="demo-status">
+                                    Enter your API key to enable demo
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-display">
+                            <div class="demo-transcription">
+                                <h3>Speech Transcription</h3>
+                                <div id="demoTranscription" class="transcription-box">
+                                    Click "Start Demo Recording" and speak naturally...
+                                </div>
+                            </div>
+
+                            <div id="demoLoading" class="demo-loading" style="display: none;">
+                                <div class="loading-spinner"></div>
+                                <p>AI is analyzing your speech...</p>
+                            </div>
+
+                            <div id="demoFeedback" class="demo-feedback" style="display: none;">
+                                <h3>AI Coaching Feedback</h3>
+                                <div id="demoFeedbackContent" class="feedback-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo Scenarios -->
+            <section class="demo-scenarios">
+                <div class="container">
+                    <h2 class="section-title">Demo Scenarios</h2>
+                    <div class="scenarios-grid">
+                        <div class="scenario-card">
+                            <div class="scenario-header">
+                                <div class="scenario-icon">💼</div>
+                                <h3>Interview Practice</h3>
+                            </div>
+                            <div class="scenario-content">
+                                <p class="scenario-description">
+                                    Practice answering common interview questions with confidence and clarity.
+                                </p>
+                                <div class="scenario-examples">
+                                    <h4>Try saying:</h4>
+                                    <ul>
+                                        <li>"Tell me about yourself and your experience."</li>
+                                        <li>"What are your greatest strengths and how do they apply to this role?"</li>
+                                        <li>"Can you describe a challenging project you've worked on recently?"</li>
+                                        <li>"Where do you see yourself in five years?"</li>
+                                    </ul>
+                                </div>
+                                <div class="expected-feedback">
+                                    <h4>Expected feedback:</h4>
+                                    <p>Focus on structure, specific examples, and confident delivery</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card">
+                            <div class="scenario-header">
+                                <div class="scenario-icon">📊</div>
+                                <h3>Presentation Skills</h3>
+                            </div>
+                            <div class="scenario-content">
+                                <p class="scenario-description">
+                                    Improve your public speaking and presentation delivery skills.
+                                </p>
+                                <div class="scenario-examples">
+                                    <h4>Try saying:</h4>
+                                    <ul>
+                                        <li>"Our quarterly results show a 15% increase in revenue."</li>
+                                        <li>"I'd like to propose a new marketing strategy for the next quarter."</li>
+                                        <li>"The data clearly indicates that customer satisfaction has improved."</li>
+                                        <li>"Let me walk you through our findings and recommendations."</li>
+                                    </ul>
+                                </div>
+                                <div class="expected-feedback">
+                                    <h4>Expected feedback:</h4>
+                                    <p>Focus on pacing, emphasis, and professional tone</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="scenario-card">
+                            <div class="scenario-header">
+                                <div class="scenario-icon">🤝</div>
+                                <h3>Meeting Communication</h3>
+                            </div>
+                            <div class="scenario-content">
+                                <p class="scenario-description">
+                                    Enhance your participation and communication in team meetings.
+                                </p>
+                                <div class="scenario-examples">
+                                    <h4>Try saying:</h4>
+                                    <ul>
+                                        <li>"I think we should consider alternative approaches to this problem."</li>
+                                        <li>"Based on my research, I believe we need to adjust our timeline."</li>
+                                        <li>"Can we discuss the budget implications of this proposal?"</li>
+                                        <li>"I'd like to get everyone's input on the next steps."</li>
+                                    </ul>
+                                </div>
+                                <div class="expected-feedback">
+                                    <h4>Expected feedback:</h4>
+                                    <p>Focus on collaboration, clarity, and team-oriented language</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Demo -->
+            <section class="features-demo">
+                <div class="container">
+                    <h2 class="section-title">Key Features Demo</h2>
+                    <div class="features-showcase">
+                        <div class="feature-demo">
+                            <div class="feature-visual">
+                                <div class="demo-animation">
+                                    <div class="speech-wave">
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                        <div class="wave"></div>
+                                    </div>
+                                    <div class="demo-text">Real-time Speech Recognition</div>
+                                </div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Instant Speech Analysis</h3>
+                                <p>Our advanced speech recognition technology converts your speech to text in real-time, 
+                                providing immediate feedback and coaching suggestions.</p>
+                                <div class="feature-benefits">
+                                    <span class="benefit">95% Accuracy</span>
+                                    <span class="benefit">Real-time Processing</span>
+                                    <span class="benefit">Multi-language Support</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-demo">
+                            <div class="feature-visual">
+                                <div class="ai-demo">
+                                    <div class="ai-brain">🧠</div>
+                                    <div class="ai-connections">
+                                        <div class="connection"></div>
+                                        <div class="connection"></div>
+                                        <div class="connection"></div>
+                                    </div>
+                                    <div class="demo-text">AI-Powered Analysis</div>
+                                </div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Intelligent Feedback</h3>
+                                <p>Google Gemini AI analyzes your speech patterns and provides personalized, 
+                                constructive feedback tailored to your specific communication needs.</p>
+                                <div class="feature-benefits">
+                                    <span class="benefit">Context-Aware</span>
+                                    <span class="benefit">Personalized Tips</span>
+                                    <span class="benefit">Professional Focus</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-demo">
+                            <div class="feature-visual">
+                                <div class="privacy-demo">
+                                    <div class="lock-icon">🔒</div>
+                                    <div class="shield">🛡️</div>
+                                    <div class="demo-text">Privacy-First Design</div>
+                                </div>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Secure & Private</h3>
+                                <p>Your speech data is processed securely and never stored permanently. 
+                                Practice with confidence knowing your privacy is protected.</p>
+                                <div class="feature-benefits">
+                                    <span class="benefit">No Data Storage</span>
+                                    <span class="benefit">Secure Processing</span>
+                                    <span class="benefit">Local Control</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Setup Modal -->
+            <div id="apiModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>🔑 API Setup Required</h3>
+                        <button id="closeModal" class="close-btn">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>To use the interactive demo, you'll need a Google Gemini API key:</p>
+                        <div class="api-form">
+                            <input type="password" id="modalApiKey" class="modal-input" placeholder="Enter your Gemini API key">
+                            <button id="modalSaveKey" class="btn btn-primary">Save & Enable Demo</button>
+                        </div>
+                        <div class="api-help">
+                            <p><strong>Get your free API key:</strong></p>
+                            <a href="https://makersuite.google.com/app/apikey" target="_blank" class="api-link">
+                                Visit Google AI Studio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">🎤</span>
+                    <span class="logo-text">AccentGuard</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="practice.html" class="footer-link">Practice</a>
+                    <a href="about.html" class="footer-link">About</a>
+                    <a href="demo.html" class="footer-link">Demo</a>
+                </div>
+                <div class="footer-text">
+                    Built with ❤️ for the Diversity & Inclusion track
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="demo.js"></script>
+</body>
+</html>

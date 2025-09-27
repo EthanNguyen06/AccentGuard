@@ -1,0 +1,42 @@
+{
+  "name": "accentguard-pro",
+  "version": "2.0.0",
+  "description": "Professional AI-powered communication confidence coach for diverse speakers",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 3000 -o",
+    "dev": "npx http-server -p 3000 -o --cors",
+    "build": "echo 'No build process needed - static files ready to deploy'",
+    "deploy": "echo 'Deploy to GitHub Pages, Vercel, Netlify, or any static hosting'"
+  },
+  "keywords": [
+    "speech-recognition",
+    "ai",
+    "communication",
+    "diversity",
+    "inclusion",
+    "confidence",
+    "gemini",
+    "hackathon",
+    "professional",
+    "coaching"
+  ],
+  "author": "AccentGuard Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/accentguard-pro.git"
+  },
+  "homepage": "https://yourusername.github.io/accentguard-pro",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

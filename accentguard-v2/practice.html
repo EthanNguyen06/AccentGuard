@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice - AccentGuard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="practice.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🎤</span>
+                <span class="logo-text">AccentGuard</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="practice.html" class="nav-link active">Practice</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="demo.html" class="nav-link">Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="practice-container">
+            <!-- Header -->
+            <div class="practice-header">
+                <h1 class="practice-title">Practice Your Communication</h1>
+                <p class="practice-subtitle">
+                    Choose your scenario and start improving your professional speaking skills
+                </p>
+            </div>
+
+            <!-- API Setup (Hidden by default) -->
+            <div class="api-setup" id="apiSetup" style="display: none;">
+                <div class="setup-card">
+                    <div class="setup-header">
+                        <h3>🔑 API Setup Required</h3>
+                        <p>Enter your Google Gemini API key to get started</p>
+                    </div>
+                    <div class="setup-form">
+                        <input type="password" id="apiKey" class="api-input" placeholder="Your Gemini API Key">
+                        <button id="saveKey" class="btn btn-primary">Save & Start</button>
+                    </div>
+                    <div class="setup-help">
+                        <p>Get your free API key at <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode Selection -->
+            <div class="mode-selection" id="modeSelection">
+                <h2 class="section-title">Choose Your Practice Mode</h2>
+                <div class="mode-cards">
+                    <div class="mode-card active" data-mode="interview">
+                        <div class="mode-icon">💼</div>
+                        <h3 class="mode-title">Interview Practice</h3>
+                        <p class="mode-description">
+                            Practice answering common interview questions with confidence and clarity.
+                        </p>
+                        <div class="mode-features">
+                            <span class="feature-tag">Behavioral Questions</span>
+                            <span class="feature-tag">Technical Interviews</span>
+                            <span class="feature-tag">Confidence Building</span>
+                        </div>
+                    </div>
+                    <div class="mode-card" data-mode="presentation">
+                        <div class="mode-icon">📊</div>
+                        <h3 class="mode-title">Presentation Skills</h3>
+                        <p class="mode-description">
+                            Improve your public speaking and presentation delivery skills.
+                        </p>
+                        <div class="mode-features">
+                            <span class="feature-tag">Public Speaking</span>
+                            <span class="feature-tag">Data Presentation</span>
+                            <span class="feature-tag">Audience Engagement</span>
+                        </div>
+                    </div>
+                    <div class="mode-card" data-mode="meeting">
+                        <div class="mode-icon">🤝</div>
+                        <h3 class="mode-title">Meeting Communication</h3>
+                        <p class="mode-description">
+                            Enhance your participation and communication in team meetings.
+                        </p>
+                        <div class="mode-features">
+                            <span class="feature-tag">Team Collaboration</span>
+                            <span class="feature-tag">Idea Sharing</span>
+                            <span class="feature-tag">Leadership Voice</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice Interface -->
+            <div class="practice-interface" id="practiceInterface" style="display: none;">
+                <div class="interface-header">
+                    <h2 id="currentModeTitle">Interview Practice</h2>
+                    <button id="changeMode" class="btn btn-secondary">Change Mode</button>
+                </div>
+
+                <div class="recording-section">
+                    <div class="record-button-container">
+                        <button id="recordBtn" class="record-btn" disabled>
+                            <span class="record-icon">🎤</span>
+                            <span class="record-text">Start Recording</span>
+                        </button>
+                    </div>
+                    <div id="status" class="status-message">
+                        Click "Start Recording" to begin your practice session
+                    </div>
+                </div>
+
+                <div class="transcription-panel">
+                    <div class="panel-header">
+                        <h3>Your Speech</h3>
+                        <div class="panel-actions">
+                            <button id="clearBtn" class="btn-icon">🗑️</button>
+                        </div>
+                    </div>
+                    <div id="transcription" class="transcription-area">
+                        Your speech will appear here as you talk...
+                    </div>
+                </div>
+
+                <div id="loading" class="loading-panel" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">Analyzing your speech...</div>
+                </div>
+
+                <div id="feedback" class="feedback-panel" style="display: none;">
+                    <div class="panel-header">
+                        <h3>💡 Coaching Feedback</h3>
+                        <div class="feedback-badge">AI Analysis</div>
+                    </div>
+                    <div id="feedbackContent" class="feedback-content"></div>
+                </div>
+
+                <div class="demo-phrases">
+                    <h3>🎯 Try These <span id="modeSpecificTitle">Interview</span> Phrases</h3>
+                    <div class="phrase-grid" id="demoPhrasesContainer">
+                        <div class="phrase-item" onclick="setDemoPhrase(this.textContent)">
+                            "Tell me about yourself and your experience."
+                        </div>
+                        <div class="phrase-item" onclick="setDemoPhrase(this.textContent)">
+                            "What are your greatest strengths and how do they apply to this role?"
+                        </div>
+                        <div class="phrase-item" onclick="setDemoPhrase(this.textContent)">
+                            "Can you describe a challenging project you've worked on recently?"
+                        </div>
+                        <div class="phrase-item" onclick="setDemoPhrase(this.textContent)">
+                            "Where do you see yourself in five years?"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="practice.js"></script>
+</body>
+</html>

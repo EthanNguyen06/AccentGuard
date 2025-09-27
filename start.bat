@@ -1,11 +1,21 @@
 @echo off
-echo 🎤 Starting AccentGuard...
 echo.
-echo Opening in your default browser...
+echo  🎤 AccentGuard - Communication Confidence Coach
+echo  ===============================================
+echo.
+echo  Starting the application...
+echo.
+echo  Opening in your default browser...
 start index.html
 echo.
-echo If the app doesn't open automatically, manually open index.html in your browser
+echo  ✅ Application started successfully!
 echo.
-echo For local development server, run: npm start
+echo  📝 Quick Setup:
+echo  1. Get your free API key from: https://makersuite.google.com/app/apikey
+echo  2. Enter the key when prompted in the app
+echo  3. Start practicing your communication skills!
 echo.
-pause
+echo  🚀 For local development server, run: npx http-server -p 3000
+echo.
+echo  Press any key to close this window...
+pause > nul

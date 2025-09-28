@@ -112,9 +112,9 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
     transform: scaleX(0);
     transition: transform 0.3s ease;
+    background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
 .mode-card.active::before {
@@ -124,10 +124,11 @@
 .mode-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+    background: linear-gradient(90deg, #667eea, #764ba2);
 }
 
 .mode-card.active {
-    border-color: #667eea;
     box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
 }
 
@@ -144,7 +145,7 @@
 }
 
 .mode-description {
-    color: #666;
+    color: #2c2c2c;
     line-height: 1.6;
     margin-bottom: 20px;
 }

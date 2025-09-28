@@ -457,10 +457,10 @@ function setDemoPhrase(phrase) {
 }
 
 function updateDemoPhrases(mode) {
-    const titleElement = document.getElementById('modeSpecificTitle');
-    const container = document.getElementById('demoPhrasesContainer');
+    const titleElement = document.getElementById('modeSpecificTitle') || document.getElementById('currentModeTitle');
+    const container = document.getElementById('demoPhrasesContainer') || document.getElementById('practicePhrasesContainer');
     
-    if (!titleElement || !container) return;
+    if (!container) return;
     
     const modeTitles = {
         interview: 'Interview',
@@ -489,13 +489,16 @@ function updateDemoPhrases(mode) {
         ]
     };
     
-    // Update title
-    titleElement.textContent = modeTitles[mode] || 'Practice';
+    // Update title if found
+    if (titleElement) {
+        titleElement.textContent = modeTitles[mode] || 'Practice';
+    }
     
-    // Update phrases - check if it's phrase-grid or demo-phrase structure
+    // Choose styling based on container type
     const isPhraseGrid = container.classList.contains('phrase-grid');
     const phraseClass = isPhraseGrid ? 'phrase-item' : 'demo-phrase';
     
+    // Render phrases
     container.innerHTML = phrases[mode].map(phrase => 
         `<div class="${phraseClass}" onclick="setDemoPhrase(this.textContent)">"${phrase}"</div>`
     ).join('');

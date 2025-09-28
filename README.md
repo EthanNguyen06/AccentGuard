@@ -63,4 +63,5 @@ AccentGuard/
 1. Uses the Web Speech API to capture your speech and transcribe it live.
 2. Sends your transcript to the Gemini API for smart feedback.
 3. Displays mode-specific suggestions (e.g., interview, meeting, presentation).
+4. Try out example prompts if you just want to test quickly.
 

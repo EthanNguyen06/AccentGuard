@@ -29,6 +29,9 @@ function setupModeSelection() {
             // Update the interface
             updateModeTitle(currentMode);
             
+            // ✅ Update phrases
+            updateDemoPhrases(currentMode);
+            
             // Show practice interface
             showPracticeInterface();
         });

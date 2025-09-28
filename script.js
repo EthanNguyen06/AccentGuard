@@ -4,7 +4,7 @@
 let recognition;
 let isRecording = false;
 let currentMode = 'interview';
-let apiKey = 'AIzaSyBxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // Demo API key - replace with your actual key
+let apiKey = 'AIzaSyBxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // Demo API key - replace with actual key
 let lastTranscript = '';
 
 // Initialize the app

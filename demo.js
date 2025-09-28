@@ -195,3 +195,95 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Recording state
+let isRecording = false;
+
+// Toggle recording function
+function toggleRecording() {
+    const button = document.getElementById('demoRecordBtn');
+    const status = document.getElementById('demoStatus');
+    const transcription = document.getElementById('demoTranscription');
+    
+    if (!button || !status || !transcription) return;
+    
+    isRecording = !isRecording;
+    
+    if (isRecording) {
+        // Start recording
+        button.innerHTML = '<span class="record-icon">⬤</span> Stop Recording';
+        button.classList.add('recording');
+        status.textContent = 'Recording in progress...';
+        transcription.textContent = 'Listening...';
+        
+        // Start the actual recording here
+        startRecording();
+    } else {
+        // Stop recording
+        button.innerHTML = '<span class="record-icon">🎤</span> Start Demo Recording';
+        button.classList.remove('recording');
+        status.textContent = 'Recording stopped';
+        
+        // Stop the actual recording here
+        stopRecording();
+    }
+}
+
+// Start recording function
+function startRecording() {
+    // Request microphone access
+    navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+            // Create MediaRecorder instance
+            const mediaRecorder = new MediaRecorder(stream);
+            window.mediaRecorder = mediaRecorder;
+            
+            // Set up data handling
+            const audioChunks = [];
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+            
+            // When recording stops
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                // Process the recorded audio
+                processAudio(audioBlob);
+            };
+            
+            // Start recording
+            mediaRecorder.start();
+        })
+        .catch(error => {
+            console.error('Error accessing microphone:', error);
+            alert('Could not access microphone. Please check permissions.');
+            toggleRecording(); // Reset recording state
+        });
+}
+
+// Stop recording function
+function stopRecording() {
+    if (window.mediaRecorder && window.mediaRecorder.state !== 'inactive') {
+        window.mediaRecorder.stop();
+    }
+}
+
+// Process recorded audio
+function processAudio(audioBlob) {
+    // Show loading state
+    const loadingEl = document.getElementById('demoLoading');
+    if (loadingEl) loadingEl.style.display = 'block';
+    
+    // Example processing - replace with actual API call
+    setTimeout(() => {
+        // Hide loading
+        if (loadingEl) loadingEl.style.display = 'none';
+        
+        // Show example feedback
+        displayDemoFeedback(
+            "1. Your pace was good and consistent\n" +
+            "2. Consider using more professional terminology\n" +
+            "3. Watch out for filler words like 'um' and 'uh'"
+        );
+    }, 2000);
+}

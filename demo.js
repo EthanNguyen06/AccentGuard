@@ -1,5 +1,16 @@
 // Demo page specific JavaScript
 
+// Add the keyframes animation
+const styleSheet = document.createElement('style');
+styleSheet.textContent = `
+    @keyframes speechWave {
+        0% { height: 20px; transform: scaleY(1); }
+        50% { height: 40px; transform: scaleY(1.2); }
+        100% { height: 20px; transform: scaleY(1); }
+    }
+`;
+document.head.appendChild(styleSheet);
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeDemoPage();
 });
@@ -67,24 +78,18 @@ function setupDemoControls() {
 }
 
 function initializeAnimations() {
-    // Start speech wave animation
-    startSpeechWaveAnimation();
-    
-    // Start AI brain animation
-    startAIBrainAnimation();
-    
-    // Start privacy animation
-    startPrivacyAnimation();
+    console.log('Initializing animations');
+    // Ensure animations start after a short delay to let DOM fully load
+    setTimeout(() => {
+        startSpeechWaveAnimation();
+        startAIBrainAnimation();
+        startPrivacyAnimation();
+    }, 100);
 }
 
 function startSpeechWaveAnimation() {
-    const waves = document.querySelectorAll('.speech-wave .wave');
-    if (waves.length === 0) return;
-    
-    waves.forEach((wave, index) => {
-        wave.style.animationDelay = `${index * 0.2}s`;
-        wave.style.animation = 'speechWave 1.5s ease-in-out infinite';
-    });
+    // Animation is now handled by CSS
+    console.log('Speech wave animation is controlled by CSS');
 }
 
 function startAIBrainAnimation() {
